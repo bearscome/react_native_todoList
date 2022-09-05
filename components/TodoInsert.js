@@ -1,8 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import {TextInput, View, StyleSheet, Button} from 'react-native';
 
 // 텍스트 입력창과 추가 버튼이 들어갈 부분이다.
-const TodoInser = () => {
+const TodoInser = ({onAddTodo}) => {
+  const [newTodoItem, setNewTodoItem] = useState('');
+
+  const todoInputHandler = newTodo => {
+    setNewTodoItem(newTodo);
+  };
+
+  const addToHandler = () => {
+    onAddTodo(newTodoItem);
+    setNewTodoItem('');
+  };
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -10,9 +20,11 @@ const TodoInser = () => {
         placeholder={'Add an item!'}
         placeholderTextColor={'#999'}
         autoCorrect={false}
+        onChangeText={todoInputHandler}
+        value={newTodoItem}
       />
       <View style={styles.button}>
-        <Button title={'add'} />
+        <Button title={'add'} onPress={addToHandler} />
       </View>
     </View>
   );

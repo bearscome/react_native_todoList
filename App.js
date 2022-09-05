@@ -6,37 +6,26 @@
  * @flow strict-local
  */
 
-import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import TodoInser from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 const App = () => {
-  useEffect(() => {
-    console.log('안녕?');
-  }, []);
+  const [todos, setTodos] = useState([]);
+
+  const addItem = text => {
+    setTodos([
+      ...todos,
+      {id: Math.random().toString(), textValue: text, checked: false},
+    ]);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>hello TodoList!</Text>
       <View style={styles.card}>
-        <TodoInser />
-        <TodoList />
+        <TodoInser onAddTodo={addItem} />
+        <TodoList todos={todos} />
       </View>
     </SafeAreaView>
   );
