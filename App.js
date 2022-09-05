@@ -14,7 +14,6 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  useColorScheme,
   View,
 } from 'react-native';
 
@@ -35,6 +34,9 @@ const App = () => {
       <Text style={styles.appTitle}>hello TodoList!</Text>
       <View style={styles.card}>
         <TextInput style={styles.input} placeholder="add an item" />
+        <ScrollView>
+          <Text>TodoList</Text>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
