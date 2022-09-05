@@ -25,6 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import TodoInser from './components/TodoInsert';
+import TodoList from './components/TodoList';
 
 const App = () => {
   useEffect(() => {
@@ -35,9 +36,7 @@ const App = () => {
       <Text style={styles.appTitle}>hello TodoList!</Text>
       <View style={styles.card}>
         <TodoInser />
-        <ScrollView>
-          <Text>TodoList</Text>
-        </ScrollView>
+        <TodoList />
       </View>
     </SafeAreaView>
   );
