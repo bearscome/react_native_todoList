@@ -10,6 +10,10 @@ const TodoListItem = () => {
       <TouchableOpacity>
         <View style={styles.completeCircle}>
           <Icon name="circledowno" size={30} color="#3143e8" />
+          {/**
+           * 아이콘 값들
+           * url: https://oblador.github.io/react-native-vector-icons/
+           */}
         </View>
       </TouchableOpacity>
       <Text style={[styles.text, styles.strikeText]}>
