@@ -7,7 +7,7 @@
  */
 
 import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Alert, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import TodoInser from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
@@ -15,6 +15,10 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   const addItem = text => {
+    if (text.length < 1) {
+      Alert.alert('한 글자 이상 작성해주세요.');
+      return;
+    }
     setTodos([
       ...todos,
       {id: Math.random().toString(), textValue: text, checked: false},
@@ -61,8 +65,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     flex: 1,
-    borderTopLeftRadius: 10, // to provide rounded corners
-    borderTopRightRadius: 10, // to provide rounded corners
+    borderRadius: 10,
     marginLeft: 10,
     marginRight: 10,
   },

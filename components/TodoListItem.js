@@ -23,11 +23,13 @@ const TodoListItem = ({textValue, id, checked, onRemove, onToggle}) => {
         ]}>
         {textValue}
       </Text>
-      <TouchableOpacity style={styles.buttonContainer}>
-        <Text onPress={onRemove(id)}>
-          <Icon name="delete" size={30} color={'#e33057'} />
-        </Text>
-      </TouchableOpacity>
+      {checked && (
+        <TouchableOpacity style={styles.buttonContainer}>
+          <Text onPress={onRemove(id)}>
+            <Icon name="delete" size={30} color={'#e33057'} />
+          </Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
