@@ -20,12 +20,17 @@ const App = () => {
       {id: Math.random().toString(), textValue: text, checked: false},
     ]);
   };
+
+  const onRemove = id => e => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>hello TodoList!</Text>
       <View style={styles.card}>
         <TodoInser onAddTodo={addItem} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onRemove={onRemove} />
       </View>
     </SafeAreaView>
   );
