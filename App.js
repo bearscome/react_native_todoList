@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import TodoInser from './components/TodoInsert';
 
 const App = () => {
   useEffect(() => {
@@ -33,7 +34,7 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>hello TodoList!</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} placeholder="add an item" />
+        <TodoInser />
         <ScrollView>
           <Text>TodoList</Text>
         </ScrollView>
